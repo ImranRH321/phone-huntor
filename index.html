@@ -15,10 +15,36 @@
     />
   </head>
   <style>
-    body{
+    body {
       background-color: black;
-      color: white;
-      
+      color: rgb(45, 218, 14);
+    }
+    .buttonD {
+        background-color: #4caf50; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .card-custom{
+        background-color: #14718a !important;
+      }
+    @media (max-width: 575px) {
+      .img-div {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        padding-top: 14px;
+      }
+      .img-div img {
+        width: 40%;
+      }
+      .card-custom{
+        background-color: #434881 !important;
+      }
     }
   </style>
   <body class="">
@@ -33,12 +59,15 @@
           <input
             id="inputSearchText"
             type="text"
-            class="form-control  border-4"
+            class="form-control border-4"
             placeholder="Searching phone"
             aria-label="searching by phone's rounded"
             aria-describedby="button-addon2"
           />
-          <button id="search_button" class="btn rounded btn-primary search-btn-color w-25">
+          <button
+            id="search_button"
+            class="btn rounded btn-primary search-btn-color w-25"
+          >
             Search
           </button>
         </div>
@@ -46,22 +75,14 @@
       <!-- searching flied text area end  -->
     </header>
 
+    <section
+      id="parenContainerDiv"
+      class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
+    ></section>
 
-    <section id="search_id" class="m-5 h-50">
-      <!-- single id details start  -->
-    </section>
-
-    <!-- display result show data start -->
     <main class="mt-5">
-      <section class="container mx-auto">
-        <div id="phone_reslut" class="row row-cols-1 row-cols-md-3 g-4">
-          <!-- ....  -->
-        </div>
-      </section>
-      <!-- display result show data start -->
+      <section class="container mx-auto"></section>
     </main>
-
-    
     <!-- bootstrap js  -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
