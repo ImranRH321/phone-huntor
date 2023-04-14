@@ -1,4 +1,5 @@
 document.getElementById("search_button").addEventListener("click", () => {
+  toggleSpinner(true);
   const inputSearch = document.getElementById("inputSearchText");
   const userSearchPhone = inputSearch.value;
   loadData(userSearchPhone);
@@ -23,7 +24,7 @@ const displayShowingPhones = (phones) => {
     noFound.classList.add("d-none");
   }
 
-  phones = phones.slice(0, 5);
+  phones = phones.slice(0, 4);
 
   phones.forEach((phone) => {
     const div = document.createElement("div");
@@ -48,6 +49,8 @@ const displayShowingPhones = (phones) => {
          `;
     parenContainerDiv.appendChild(div);
   });
+  // stop spinner //
+  toggleSpinner(false);
 };
 
 // ** load single details phone **
@@ -82,10 +85,21 @@ const displayDetailsModalShowPhones = (phones) => {
   `;
 };
 
+// loading spinner //
+const toggleSpinner = (isLoading) => {
+  // stating search loading and show all phone display then stop loading
+  const spinnerTag = document.getElementById("spinner_div");
+  if (isLoading) {
+    spinnerTag.classList.remove("d-none");
+  } else {
+    spinnerTag.classList.add("d-none");
+  }
+};
 
 /* 
 1.load phone
 1.load details phone.
  1.phone search no result found then error data is no found 
  2.phone search data found then no found hide  
+ 3. loading spinner
 */

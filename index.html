@@ -74,9 +74,10 @@
       </article>
       <!-- searching flied text area end  -->
     </header>
-  
+
+    <!-- found data error message  -->
     <div id="no-found" class="d-none text-center">
-     <h1>No found data </h1>
+      <h1>No found data</h1>
     </div>
 
     <section
@@ -84,6 +85,16 @@
       class="overflow-hidden row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
     ></section>
 
+    <!-- show and hide spinner  -->
+    <div
+    id="spinner_div"
+      style="height: 200px"
+      class="d-none text-center d-flex justify-content-center align-items-center"
+    >
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
 
     <!-- modal start  -->
     <!-- Button trigger modal -->
