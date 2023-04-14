@@ -5,8 +5,16 @@ const processingSearch = (limit) => {
   loadData(userSearchPhone, limit);
 };
 
+// search button click
 document.getElementById("search_button").addEventListener("click", () => {
   processingSearch(10);
+});
+
+// search filed enter
+document.getElementById("inputSearchText").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    processingSearch(10);
+  }
 });
 
 //load data  //
@@ -120,4 +128,5 @@ document.getElementById("showData_button").addEventListener("click", () => {
 3.Toggle no phone found message based on search result data
 4.Show and hide loading spinner while loading API data
 5.Implement Show All button to display all data
+6.Dynamic API Data Load and search on keyboard enter button
 */
