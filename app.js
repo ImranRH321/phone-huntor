@@ -1,30 +1,43 @@
-document.getElementById("search_button").addEventListener("click", () => {
+const processingSearch = (limit) => {
   toggleSpinner(true);
   const inputSearch = document.getElementById("inputSearchText");
   const userSearchPhone = inputSearch.value;
-  loadData(userSearchPhone);
+  loadData(userSearchPhone, limit);
+};
+
+document.getElementById("search_button").addEventListener("click", () => {
+  processingSearch(10);
 });
 
-async function loadData(searchText) {
+//load data  //
+async function loadData(searchText, limit) {
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   const response = await fetch(url);
   const loadPhones = await response.json();
   const phones = loadPhones.data;
-  displayShowingPhones(phones);
+  displayShowingPhones(phones, limit);
 }
 
 // ** single item display  **
-const displayShowingPhones = (phones) => {
+const displayShowingPhones = (phones, limit) => {
   const parenContainerDiv = document.getElementById("parenContainerDiv");
   parenContainerDiv.innerHTML = "";
   const noFound = document.getElementById("no-found");
+  // search value no found then show error message
   if (phones.length === 0) {
     noFound.classList.remove("d-none");
   } else {
     noFound.classList.add("d-none");
   }
 
-  phones = phones.slice(0, 4);
+  const showButton = document.getElementById("show_button");
+
+  if (limit && phones.length > 10) {
+    phones = phones.slice(0, 10);
+    showButton.classList.remove("d-none");
+  } else {
+    showButton.classList.add("d-none");
+  }
 
   phones.forEach((phone) => {
     const div = document.createElement("div");
@@ -96,10 +109,15 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
+// show button data all //
+document.getElementById("showData_button").addEventListener("click", () => {
+  processingSearch();
+});
+
 /* 
-1.load phone
-1.load details phone.
- 1.phone search no result found then error data is no found 
- 2.phone search data found then no found hide  
- 3. loading spinner
+1.Load data using Phone Hunter API 
+2.Display phones and implement search functionality
+3.Toggle no phone found message based on search result data
+4.Show and hide loading spinner while loading API data
+5.Implement Show All button to display all data
 */
