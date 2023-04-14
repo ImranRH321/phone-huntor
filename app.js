@@ -2,6 +2,7 @@ const processingSearch = (limit) => {
   toggleSpinner(true);
   const inputSearch = document.getElementById("inputSearchText");
   const userSearchPhone = inputSearch.value;
+  // inputSearch.value = "";
   loadData(userSearchPhone, limit);
 };
 
@@ -10,7 +11,7 @@ document.getElementById("search_button").addEventListener("click", () => {
   processingSearch(10);
 });
 
-// search filed enter
+// search filed enter //
 document.getElementById("inputSearchText").addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     processingSearch(10);
@@ -51,7 +52,7 @@ const displayShowingPhones = (phones, limit) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-       <div class="card bg-secondary">
+       <div class="card newClassBg">
     <div class="img-div p-2">
       <img src="${phone.image}" class=" card-img " alt="images-loading">
     </div>
@@ -61,7 +62,7 @@ const displayShowingPhones = (phones, limit) => {
 
     <button onclick= loadDetailsPhones('${
       phone.slug
-    }') type="button" class="btn btn-success"
+    }') type="button" class="btn btn-dark"
      data-bs-toggle="modal" data-bs-target="#myPhoneModal">
   showDetails
 </button>

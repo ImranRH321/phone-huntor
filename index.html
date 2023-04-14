@@ -16,21 +16,29 @@
   </head>
   <style>
     body {
-      background-color: black;
+      /* background-color: black;  */
+      background-image: url("https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      background-attachment: fixed;
       color: rgb(45, 218, 14);
     }
     .buttonD {
       background-color: #4caf50;
       border: none;
       color: white;
-      padding: 15px 32px;
+      padding: 10px, 0;
       text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 16px;
     }
-    .card-custom {
-      background-color: #14718a !important;
+ 
+    .newClassBg{
+      background-image: linear-gradient(to right top, #f4f5f6,  #7399d6, #4e7ac9, #3a6ab6, #245ba4, #004c92, #004575, #003953, #002b34, #061d1c);
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-radius: 5px;
     }
     @media (max-width: 575px) {
       .img-div {
@@ -48,25 +56,25 @@
     }
   </style>
   <body class="">
-    <h1 class="mx-auto search-btn-color text-white py-5 text-center">
+    <h1 class="mx-auto search-btn-color text-white my-4 text-center">
       Searching Phone
     </h1>
 
     <!-- searching flied text area start  -->
-    <header class="makebg">
-      <article class="container mt-5">
-        <div class="input-group mb-3 container w-50 mx-auto">
+    <header class=" ">
+      <article class="container">
+        <div class="input-group mb-3 container w-75 mx-auto shadow-lg">
           <input
             id="inputSearchText"
             type="text"
-            class="form-control border-4"
+            class="form-control shadow-lg p-3 mb-5 bg-white rounded"
             placeholder="Searching phone"
             aria-label="searching by phone's rounded"
             aria-describedby="button-addon2"
           />
           <button
             id="search_button"
-            class="btn rounded btn-primary search-btn-color w-25"
+            class="btn btn-success bg-success rounded search-btn-color w-25 shadow-lg p-3 mb-5 rounded"
           >
             Search
           </button>
@@ -82,12 +90,12 @@
 
     <section
       id="parenContainerDiv"
-      class="overflow-hidden row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
+      class="overflow-hidden container mx-auto row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
     ></section>
 
     <!-- show and hide spinner  -->
     <div
-    id="spinner_div"
+      id="spinner_div"
       style="height: 200px"
       class="d-none text-center d-flex justify-content-center align-items-center"
     >
@@ -98,7 +106,7 @@
 
     <!-- show button  -->
     <div id="show_button" class="d-none d-flex justify-content-center my-3">
-       <button id="showData_button" class="btn btn-primary">showData</button>
+      <button id="showData_button" class="btn btn-primary">showData</button>
     </div>
 
     <!-- modal start  -->
